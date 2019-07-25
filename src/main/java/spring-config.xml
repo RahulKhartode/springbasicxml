@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="firmService" class="com.poc.springbasicxml.service.FirmService">
+		<property name="firmDAO" ref="firmDAO"></property>
+	</bean>
+
+	<bean id="firmDAO" class="com.poc.springbasicxml.dao.FirmDAO">
+		<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
+	</bean>
+	
+	<bean id="dataSource" class="com.poc.springbasicxml.datasource.DummyDataSource">
+		<property name="url" value="jdbc:sybase:Tds:10.253.220.79:5609/oms"></property>
+	</bean>
+	
+	<!-- <bean class="com.poc.springbasicxml.post.DummyBeanPostProcessor1"></bean>
+	<bean class="com.poc.springbasicxml.post.DummyBeanPostProcessor"></bean>
+	
+	<bean class="com.poc.springbasicxml.post.DummyBeanFactoryPostProcessor"></bean> -->
+</beans>
